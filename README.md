@@ -6,71 +6,22 @@ This is a fork of an [existing sample](https://github.com/ghammock/LaTeX_Listing
 
 The LaTeX [listings](https://ctan.org/pkg/listings?lang=en) package does not include (by default) a language specification for JavaScript/ECMAScript.  However, the package provides the capability to create custom languages and styles based on built-in methods.  These methods were used to create listings languages for JavaScript and ES6 (ECMAScript 2015).
 
-# Basic JavaScript
+## Basic JavaScript
 
-First, the JavaScript version 1.1 definition is built in a way to allow for modifications to be built upon the basic language.  Reference the [JavaScript v1.1 specification](http://hepunx.rl.ac.uk/~adye/jsspec11/titlepg2.htm).
+First, the JavaScript version 1.1 definition is built in a way to allow for modifications to be built upon the basic language.  Reference the [JavaScript v1.1 specification](http://hepunx.rl.ac.uk/~adye/jsspec11/titlepg2.htm). 
 
-## The code
-```latex
-\lstdefinelanguage{JavaScript}{
-  morekeywords=[1]{break, continue, delete, else, for, function, if, in,
-    new, return, this, typeof, var, void, while, with},
-  % Literals, primitive types, and reference types.
-  morekeywords=[2]{false, null, true, boolean, number, undefined,
-    Array, Boolean, Date, Math, Number, String, Object},
-  % Built-ins.
-  morekeywords=[3]{eval, parseInt, parseFloat, escape, unescape},
-  sensitive,
-  morecomment=[s]{/*}{*/},
-  morecomment=[l]//,
-  morecomment=[s]{/**}{*/}, % JavaDoc style comments
-  morestring=[b]',
-  morestring=[b]"
-}[keywords, comments, strings]
-```
-
-## Example
-
-### Markup
-
-```tex
-\begin{lstlisting}[style=JavaScript, caption={JavaScript Listing}]
-(function () {
-  var user = getCookie("username");
-  document.getElementById("#date-field").innerHTML = new Date();
-  document.getElementById("#greetings").innerHTML =
-    "<p>Hello, " + user.name + ".</p>";
-})()
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i < ca.length; ++i) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-\end{lstlisting}
-```
-
-### Resulting Typeset
-![Javascript Listing Example](img/js_listing_example.png)
-
-# ECMAScript 2015 (ES6)
+## ECMAScript 2015 (ES6)
 
 ES6 adds additional keywords and interpolated string capability.  So these need to be reflected in the language defintion for `listings`.  The `ECMAScript2015` dialect of the `JavaScript` language uses the base language and adds the additional keywords and string interpolation.
 
 There is an alias to map the language `ES6` to the `ECMAScript2015` dialect such that `language=ES6` is the same as `language=[ECMAScript2015]JavaScript`.
 
+## How to specify either Javascript or ES6 
+
+The main distinction is due to the settings in `listing style` - it could be either `Javascript` or `ES6`
+
 ```tex
-\lstalias[]{ES6}[ECMAScript2015]{JavaScript}
+\begin{tcblisting}{listing style=ES6 ....
 ```
 
 ## The code
@@ -83,9 +34,11 @@ There is an alias to map the language `ES6` to the `ECMAScript2015` dialect such
 }
 ```
 
-## Example (with text before the code for a pagebreak)
+# Example (with text before the code for a pagebreak)
 
-### Markup
+Basically the [existing samples](https://github.com/ghammock/LaTeX_Listings_JavaScript_ES6) with their specification still works. The sample shows the main changes in the basic layout.
+
+## Markup
 ```tex
 //Option 1 - Use try catch within the function
 async function doubleAndAdd(a, b) {
