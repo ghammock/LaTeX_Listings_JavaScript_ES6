@@ -40,6 +40,10 @@ Basically the [existing samples](https://github.com/ghammock/LaTeX_Listings_Java
 
 ## Markup
 ```tex
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+		listing only, breakable, listing style=ES6,
+		title=Samples for JavaScript and ES6,enhanced,drop fuzzy shadow,
+	}
 //Option 1 - Use try catch within the function
 async function doubleAndAdd(a, b) {
 	try {
@@ -73,6 +77,7 @@ function doubleAfter1Sec(param) {
 	var newOne = () => {
 		console.log('Hello World..!');
 	}
+\end{tcblisting}	
 ```
 
 ### Resulting Typeset
