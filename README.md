@@ -44,8 +44,8 @@ Basically the [existing samples](https://github.com/ghammock/LaTeX_Listings_Java
 		listing only, breakable, listing style=ES6,
 		title=Samples for JavaScript and ES6,enhanced,drop fuzzy shadow,
 	}
-//Option 1 - Use try catch within the function
-async function doubleAndAdd(a, b) {
+  //Option 1 - Use try catch within the function
+  async function doubleAndAdd(a, b) {
 	try {
 		a = await doubleAfter1Sec(a);
 		b = await doubleAfter1Sec(b);
@@ -53,20 +53,20 @@ async function doubleAndAdd(a, b) {
 		return NaN; //return something
 	}
 	return a + b;
-}
+  }
 
-//New usage:
-doubleAndAdd('one', 2).then(console.log); // NaN
-doubleAndAdd(1, 2).then(console.log); // 6
+  //New usage:
+  doubleAndAdd('one', 2).then(console.log); // NaN
+  doubleAndAdd(1, 2).then(console.log); // 6
 
-function doubleAfter1Sec(param) {
+  function doubleAfter1Sec(param) {
 	return new Promise((resolve, reject) => {
 		setTimeout(function() {
 			let val = param * 2;
 			isNaN(val) ? reject(NaN) : resolve(val);
 		}, 1000);
 	});
-}
+  }
 
 
 	// Old Syntax
