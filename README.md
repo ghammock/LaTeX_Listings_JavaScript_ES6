@@ -83,7 +83,7 @@ There is an alias to map the language `ES6` to the `ECMAScript2015` dialect such
 }
 ```
 
-## Example
+## Example (with text before the code for a pagebreak)
 
 ### Markup
 ```tex
